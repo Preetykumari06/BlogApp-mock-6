@@ -2,6 +2,7 @@ const express=require("express")
 const cors=require("cors")
 const {connection}=require("./Config/db")
 const { userRouter } = require("./Routes/User.route")
+const { blogRouter } = require("./Routes/Blog.route")
 
 require('dotenv').config()
 
@@ -15,7 +16,7 @@ app.get("/", async(req,res)=>{
 })
 
 app.use("/",userRouter)
-
+app.use("/",blogRouter)
 
 app.listen(process.env.port, async()=>{
     try{
